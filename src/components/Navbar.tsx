@@ -48,10 +48,10 @@ const Navbar = () => {
 
         {/* Menu Navigasi (Desktop) */}
         <div className="ml-auto hidden md:flex items-center space-x-6">
-          {["Home", "About", "Services", "Team"].map((item) => (
+          {["Home", "About", "Service", "Team"].map((item) => (
             <Link
               key={item}
-              href={`/${item.toLowerCase()}`}
+              href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
               className="hover:text-black/70 hover:underline transition-all duration-200"
             >
               {item}

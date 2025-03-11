@@ -72,11 +72,11 @@ const Jumbotron = () => {
               Start Now
             </Button>
           </Link>
-          <Button className="bg-transparent hover:motion-preset-pop border text-[#ffffff] border-[#ffffff] hover:text-[#272727] hover:bg-white">
-            <Link href="/#why-choose-us" scroll={true}>
+          <Link href="/#why-choose-us" scroll={true}>
+            <Button className="bg-transparent hover:motion-preset-pop border text-[#ffffff] border-[#ffffff] hover:text-[#272727] hover:bg-white">
               Learn More
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

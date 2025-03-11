@@ -7,12 +7,12 @@ const PhotoServide = () => {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-semibold mt-40 text-[#272727] dark:text-white">
+            <h2 className="text-4xl font-semibold mt-40 text-[#272727] dark:text-white">
               With Us, We Build the <br />
               <span className="text-4xl md:text-[5rem] mb-5 font-bold leading-none">
                 Future of Your Business
               </span>
-            </h1>
+            </h2>
           </>
         }
       >
