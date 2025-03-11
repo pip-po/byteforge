@@ -4,20 +4,12 @@ import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const images = ["/discuss.png", "/jumbo2.jpg", "/jumbo3.jpg"];
 
 const Jumbotron = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Ubah setiap 3 detik
-
-    return () => clearInterval(interval);
-  }, []);
+  const [index] = useState(0);
 
   return (
     <section className="relative w-full">
@@ -36,7 +28,6 @@ const Jumbotron = () => {
                 src={src}
                 alt="gambar company"
                 fill
-                priority
                 className="w-full  max-h-[500px] md:max-h-[650px] opacity-100 object-cover"
                 style={{
                   maskImage:
