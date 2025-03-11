@@ -43,9 +43,9 @@ const TestimonialCarousel = () => {
   return (
     <section className="container mx-auto px-16 md:px-28 py-5">
       <div className="px-10 pb-10">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-[#272727] text-center tracking-tight font-bold  dark:text-white">
+        <h2 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-[#272727] text-center tracking-tight font-bold  dark:text-white">
           What Clients Say About Us?
-        </h4>
+        </h2>
       </div>
       <Carousel className="rounded-md border border-black/20 shadow-lg">
         <CarouselContent>

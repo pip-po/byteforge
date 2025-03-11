@@ -49,9 +49,9 @@ const WhyChooseUs = () => {
       id="why-choose-us"
     >
       <div className="px-10">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-bold text-[#272727] dark:text-white">
+        <h3 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-bold text-[#272727] dark:text-white">
           Why Choose ByteForge?
-        </h4>
+        </h3>
 
         <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
           Partner with ByteForge for seamless, innovative, and scalable

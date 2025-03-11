@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,89 +16,75 @@ import { Button } from "./ui/button";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 10);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
+
   return (
     <nav
-      className={`fixed left-0 top-0 md:top-4 z-50 w-full rounded-md ${
-        isScrolled ? "backdrop-blur-lg bg-white/50 shadow-md" : " bg-white"
+      className={`fixed left-0 top-0 md:top-4 z-50 w-full min-h-[60px] rounded-md transition-all duration-300 ${
+        isScrolled ? "backdrop-blur-lg bg-white/70 shadow-md" : "bg-white"
       }`}
     >
-      <div
-        id="navbar"
-        className="container relative mx-auto p-4 flex items-center"
-      >
+      <div className="container relative mx-auto p-4 flex items-center">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" className="flex-shrink-0">
           <Image
-            src="/ByteForge.png"
-            alt="logo"
+            src="/ByteForge.webp"
+            alt="ByteForge Logo"
             width={130}
             height={70}
+            priority
             style={{ objectFit: "contain" }}
           />
         </Link>
 
-        {/* Menu navigasi di kanan */}
-        <div className="ml-auto space-x-4 hidden  md:flex items-center">
-          <Link
-            className="hover:text-black/50 hover:underline pointer-events-auto"
-            href="/"
-          >
-            Home
+        {/* Menu Navigasi (Desktop) */}
+        <div className="ml-auto hidden md:flex items-center space-x-6">
+          {["Home", "About", "Services", "Team"].map((item) => (
+            <Link
+              key={item}
+              href={`/${item.toLowerCase()}`}
+              className="hover:text-black/70 hover:underline transition-all duration-200"
+            >
+              {item}
+            </Link>
+          ))}
+          <Link href="/contact">
+            <Button className="bg-[#272727] hover:bg-[#272727]/80 transition-all duration-300">
+              Contact Us
+            </Button>
           </Link>
-          <Link
-            className="hover:text-black/50 hover:underline pointer-events-auto"
-            href="/about"
-          >
-            About
-          </Link>
-          <Link
-            className="hover:text-black/50 hover:underline pointer-events-auto"
-            href="/service"
-          >
-            Services
-          </Link>
-          <Link
-            className="hover:text-black/50 hover:underline pointer-events-auto"
-            href="/team"
-          >
-            Team
-          </Link>
-          <Button className="bg-[#272727] hover:bg-[#272727]/50">
-            <Link href="/contact">Contact Us</Link>
-          </Button>
         </div>
-        <div className="md:hidden ml-auto">
+
+        {/* Menu Navigasi (Mobile) */}
+        <div className="ml-auto md:hidden">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="p-2 border rounded">☰</button>
+              <Button
+                aria-label="Open menu"
+                className="p-2 border rounded-md bg-white text-black hover:bg-gray-50 transition-all"
+              >
+                ☰
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>
                 <Link href="/">Home</Link>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
-                <Link href="/about">About</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/service">Services</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/team">Team</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/contact">Contact</Link>
-              </DropdownMenuItem>
+              {["About", "Services", "Team", "Contact"].map((item) => (
+                <DropdownMenuItem key={item}>
+                  <Link href={`/${item.toLowerCase()}`}>{item}</Link>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

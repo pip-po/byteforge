@@ -9,14 +9,6 @@ import { useEffect, useState } from "react";
 const images = ["/discuss.png", "/jumbo2.jpg", "/jumbo3.jpg"];
 
 const Jumbotron = () => {
-  // const [index, setIndex] = useState(0);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setIndex((prevIndex) => (prevIndex + 1) % images.length);
-  //   }, 4000); // Ganti gambar tiap 3 detik
-  //   return () => clearInterval(interval);
-  // }, []);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -34,11 +26,8 @@ const Jumbotron = () => {
           {images.map((src, i) => (
             <motion.div
               key={i}
-              // initial={{ opacity: 0.7 }}
-              // animate={{ opacity: 1 }}
               initial={{ opacity: i === index ? 0 : 1 }}
               animate={{ opacity: i === index ? 1 : 0 }}
-              // exit={{ opacity: 0 }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
               className="absolute w-full  h-[500px] md:h-[700px] z-0"
               style={{ zIndex: i === index ? 2 : 1 }}
@@ -78,11 +67,11 @@ const Jumbotron = () => {
           solutions
         </h1>
         <div className="flex relative justify-center items-center gap-2 mt-10 z-10">
-          <Button className="bg-[#ffffff] hover:motion-preset-pop text-[#272727] border border-transparent hover:border-[#ffffff] hover:bg-transparent hover:text-[#ffffff] font-medium pointer-events-auto p-4">
-            <Link href="/service" scroll={false}>
+          <Link href="/service" scroll={false}>
+            <Button className="bg-[#ffffff] hover:motion-preset-pop text-[#272727] border border-transparent hover:border-[#ffffff] hover:bg-transparent hover:text-[#ffffff] font-medium pointer-events-auto p-4">
               Start Now
-            </Link>
-          </Button>
+            </Button>
+          </Link>
           <Button className="bg-transparent hover:motion-preset-pop border text-[#ffffff] border-[#ffffff] hover:text-[#272727] hover:bg-white">
             <Link href="/#why-choose-us" scroll={true}>
               Learn More

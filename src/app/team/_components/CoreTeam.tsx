@@ -7,18 +7,20 @@ import {
 } from "lucide-react";
 export function CoreTeam() {
   return (
-    <div className="max-w-5xl mx-auto">
-      <hr />
-      <div className="mx-5 md:mx-0 text-right">
-        <h3 className="font-bold mt-10 text-[#272727] text-xl lg:text-6xl lg:leading-tight">
-          Core Team
-        </h3>
-        <p className="text-sm lg:text-base mt-4 text-neutral-500 font-normal dark:text-neutral-300">
-          The core team is made up of highly skilled individuals who collaborate
-          to bring ByteForge’s vision to life.
-        </p>
+    <div className="container mx-auto p-4">
+      <div className="mx-3 md:mx-24">
+        <hr />
+        <div className="mx-5 md:mx-0 text-right">
+          <h3 className="font-bold mt-10 text-[#272727] text-xl lg:text-6xl lg:leading-tight">
+            Core Team
+          </h3>
+          <p className="text-sm lg:text-base mt-4 text-neutral-500 font-normal dark:text-neutral-300">
+            The core team is made up of highly skilled individuals who
+            collaborate to bring ByteForge’s vision to life.
+          </p>
+        </div>
+        <HoverEffect items={projects} />
       </div>
-      <HoverEffect items={projects} />
     </div>
   );
 }
