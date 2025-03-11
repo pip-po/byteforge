@@ -17,7 +17,7 @@ const PhotoServide = () => {
         }
       >
         <Image
-          src={`/homepage.jpg`}
+          src={`/homepage.webp`}
           alt="hero"
           height={720}
           width={1400}

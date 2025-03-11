@@ -14,7 +14,7 @@ const Jumbotron = () => {
   return (
     <section className="relative w-full">
       <div>
-        <AnimatePresence>
+        {/* <AnimatePresence>
           {images.map((src, i) => (
             <motion.div
               key={i}
@@ -47,24 +47,29 @@ const Jumbotron = () => {
               ></div>
             </motion.div>
           ))}
-        </AnimatePresence>
+        </AnimatePresence> */}
       </div>
-      <div>
-        <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold max-w-7xl mx-auto text-center pt-30 md:pt-40 relative z-20 py-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white dark:from-neutral-800 dark:via-white dark:to-white">
-          Empowering your businesses
-          <br />
-          with cutting-edge technology
-          <br />
-          solutions
-        </h1>
-        <div className="flex relative justify-center items-center gap-2 mt-10 z-10">
+      <div className="flex flex-col items-center w-full">
+        {/* Preset fixed height to prevent layout shift */}
+        <div className="min-h-[240px] md:min-h-[300px] lg:min-h-[320px] flex items-center justify-center">
+          <h1 className="text-4xl md:text-4xl lg:text-6xl font-bold max-w-7xl mx-auto text-center relative z-20 py-6 bg-clip-text text-[#272727] dark:from-neutral-800 dark:via-white dark:to-white">
+            Empowering your businesses
+            <br />
+            with cutting-edge technology
+            <br />
+            solutions
+          </h1>
+        </div>
+
+        {/* Fixed height for buttons container */}
+        <div className="flex relative justify-center items-center gap-2 mt-2 z-10 min-h-[60px]">
           <Link href="/service" scroll={false}>
-            <Button className="bg-[#ffffff] hover:motion-preset-pop text-[#272727] border border-transparent hover:border-[#ffffff] hover:bg-transparent hover:text-[#ffffff] font-medium pointer-events-auto p-4">
+            <Button className="bg-[#272727]  text-[#ffffff] border border-transparent hover:border-[#272727] hover:bg-transparent hover:text-[#272727] font-medium pointer-events-auto p-4">
               Start Now
             </Button>
           </Link>
           <Link href="/#why-choose-us" scroll={true}>
-            <Button className="bg-transparent hover:motion-preset-pop border text-[#ffffff] border-[#ffffff] hover:text-[#272727] hover:bg-white">
+            <Button className="bg-transparent  border text-[#272727] border-[#272727] hover:text-[#ffffff] hover:bg-[#272727]">
               Learn More
             </Button>
           </Link>

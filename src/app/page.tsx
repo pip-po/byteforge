@@ -6,6 +6,7 @@ import PhotoServide from "./_components/PhotoServide";
 import StatTickers from "./_components/StatTickers";
 import TestimonialCarousel from "./_components/TestimonialCarousel";
 import WhyChooseUs from "./_components/WhyChooseUs";
+import Homepage from "./_components/Homepage";
 
 export const metadata: Metadata = {
   title: "ByteForge - Empowering Innovation",
@@ -15,15 +16,9 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="mt-10 md:mt-20">
       <Jumbotron />
-      <PhotoServide />
-      <CompanyAbout />
-      <StatTickers />
-      <hr className="bg-transparent border-none" />
-      <WhyChooseUs />
-      <TestimonialCarousel />
-      <CTASection />
+      <Homepage />
     </div>
   );
 }
